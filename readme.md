@@ -11,7 +11,7 @@ c := goperspective.NewClient("YOUR TOKEN HERE")
 
 ## Analyzing Comments
 
-```
+```go
 
 data := map[string]interface{}{
 		"comment": map[string]interface{}{
@@ -57,7 +57,7 @@ TOXICITY 0.9328236
 
 ```
 ## Suggesting comment score
-```
+```go
 
 data := map[string]interface{}{
 		"comment": map[string]interface{}{
