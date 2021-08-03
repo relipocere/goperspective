@@ -4,7 +4,7 @@ This library is an implimentation of [Perspective API](https://developers.perspe
 [Methods and fields](https://developers.perspectiveapi.com/s/about-the-api-methods).
 
 ## Initizalizing client
-```
+```go
 c := goperspective.NewClient("YOUR TOKEN HERE")
 
 ```
