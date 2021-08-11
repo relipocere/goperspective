@@ -1,3 +1,4 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/exsocial/goperspective)](https://goreportcard.com/report/github.com/exsocial/goperspective)
 # GO Perspective API Client
 This library is an implimentation of [Perspective API](https://developers.perspectiveapi.com/s/) client in Go.
 [Attributes and supported languages](https://developers.perspectiveapi.com/s/about-the-api-attributes-and-languages).
