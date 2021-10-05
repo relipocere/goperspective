@@ -33,7 +33,7 @@ type AnalyzeRequestAttr struct {
 	//(optional) Currently, only "PROBABILITY" is supported.
 	ScoreType string `json:"scoreType,omitempty"`
 	//(optional)The API won't return scores that are below this threshold for this attribute.
-	ScoreTreshold float32 `json:"scoreTreshold,omitempty"`
+	ScoreThreshold float32 `json:"scoreThreshold,omitempty"`
 }
 
 //AnalyzeResponse is the response data from the API's analyze method.
