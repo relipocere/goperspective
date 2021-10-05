@@ -8,9 +8,9 @@ type AnalyzeRequest struct {
 	// Context map[string]interface{} has no use yet `json:"context,omitempty"`
 
 	//Indicates if the request should return spans that describe the scores for each part of the text (currently done at per-sentence level).
-	SpanAnnotations bool `json:"spanAnnotations"`
+	SpanAnnotations bool `json:"spanAnnotations,omitempty"`
 	//Stored comments will be used for future research
-	DoNotStore bool `json:"doNotStore"`
+	DoNotStore bool `json:"doNotStore,omitempty"`
 	//(optional) Example: "en", "es", "fr", "de", etc. If unspecified, the API will auto-detect the comment language.
 	Languages []string `json:"languages,omitempty"`
 	//(optional) An opaque token that is echoed back in the response. (Note: This is not the clientId, which is automatically set through Google Cloud. This is a field users can set to help them keep track of their requests.)
@@ -33,7 +33,7 @@ type AnalyzeRequestAttr struct {
 	//(optional) Currently, only "PROBABILITY" is supported.
 	ScoreType string `json:"scoreType,omitempty"`
 	//(optional)The API won't return scores that are below this threshold for this attribute.
-	ScoreTreshold int64 `json:"scoreTreshold,omitempty"`
+	ScoreTreshold float32 `json:"scoreTreshold,omitempty"`
 }
 
 //AnalyzeResponse is the response data from the API's analyze method.
@@ -57,8 +57,8 @@ type SpanScore struct {
 }
 
 type Score struct {
-	Value int64  `json:"value"`
-	Type  string `json:"type"`
+	Value float32 `json:"value"`
+	Type  string  `json:"type,omitempty"`
 }
 
 //SuggestRequst is the data for the API's suggest method.
@@ -85,8 +85,8 @@ type SuggestResposne struct {
 
 //ErrorRes is the mapped API error response.
 type ErrorRes struct {
-	Code    int                 `json:"code"`
-	Message string              `json:"message"`
-	Status  string              `json:"status"`
-	Details []map[string]string `json:"details"`
+	Code    int                      `json:"code"`
+	Message string                   `json:"message"`
+	Status  string                   `json:"status"`
+	Details []map[string]interface{} `json:"details"`
 }
