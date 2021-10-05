@@ -13,14 +13,14 @@ type PerpectiveTSuite struct {
 }
 
 func (ps *PerpectiveTSuite) SetupSuite() {
-	client := NewClient(os.Getenv("KEY"))
+	client := NewClient(os.Getenv("TOKEN"))
 	ps.c = client
 }
 
 func (ps *PerpectiveTSuite) TestAnalyze() {
 	data := AnalyzeRequest{
 		Comment: AnalyzeRequestComment{
-			Text: "I hate you you fucking twat",
+			Text: "You are fucking stupid, aren't you?",
 		},
 		ReqAttr: map[Attribute]AnalyzeRequestAttr{
 			Toxicity:       {},
