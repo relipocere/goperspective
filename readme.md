@@ -1,4 +1,4 @@
-[![Go Reference](https://pkg.go.dev/badge/github.com/exsocial/goperspective.svg)](https://pkg.go.dev/github.com/exsocial/goperspective) [![Go Report Card](https://goreportcard.com/badge/github.com/exsocial/goperspective)](https://goreportcard.com/report/github.com/exsocial/goperspective) [![Code Coverage](https://img.shields.io/badge/coverage-79%25-green)]
+[![Go Reference](https://pkg.go.dev/badge/github.com/exsocial/goperspective.svg)](https://pkg.go.dev/github.com/exsocial/goperspective) [![Go Report Card](https://goreportcard.com/badge/github.com/exsocial/goperspective)](https://goreportcard.com/report/github.com/exsocial/goperspective) ![Code Coverage](https://img.shields.io/badge/coverage-79%25-green)
 # GO Perspective API Client
 [Perspective API](https://developers.perspectiveapi.com/s/) is a free tool that allows you to analyze the sentiment of comments for such attributes as toxicity, threats, etc.
 This library is an implementation of the API client in Go. 
