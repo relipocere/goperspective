@@ -1,82 +1,28 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/exsocial/goperspective)](https://goreportcard.com/report/github.com/exsocial/goperspective)
+[![Go Reference](https://pkg.go.dev/badge/github.com/exsocial/goperspective.svg)](https://pkg.go.dev/github.com/exsocial/goperspective) [![Go Report Card](https://goreportcard.com/badge/github.com/exsocial/goperspective)](https://goreportcard.com/report/github.com/exsocial/goperspective) [![Code Coverage](https://img.shields.io/badge/coverage-79%25-green)]
 # GO Perspective API Client
-This library is an implimentation of [Perspective API](https://developers.perspectiveapi.com/s/) client in Go.
+[Perspective API](https://developers.perspectiveapi.com/s/) is a free tool that allows you to analyze the sentiment of comments for such attributes as toxicity, threats, etc.
+This library is an implementation of the API client in Go. 
 [Attributes and supported languages](https://developers.perspectiveapi.com/s/about-the-api-attributes-and-languages).
 Methods and fields can be found [here](https://developers.perspectiveapi.com/s/about-the-api-methods).
 
-## Initizalizing client
+## Getting started
+### Installing
+
+```sh
+go get github.com/exsocial/goperspective
+```
+### Usage
+
+Import the package into your project.
+
 ```go
-c := goperspective.NewClient("YOUR TOKEN HERE")
-
+import "github.com/exsocial/goperspective"
 ```
 
-## Analyzing Comments
+Construct a new API client.
 
 ```go
-
-data := map[string]interface{}{
-		"comment": map[string]interface{}{
-			"text": "Get the fuck out of here",
-		},
-		"requestedAttributes": map[string]interface{}{
-			"TOXICITY": map[string]interface{}{
-				"scoreThreshold": 0,
-			},
-			"IDENTITY_ATTACK": map[string]interface{}{
-				"scoreThreshold": 0,
-			},
-			"INSULT": map[string]interface{}{
-				"scoreThreshold": 0,
-			},
-			"THREAT": map[string]interface{}{
-				"scoreThreshold": 0,
-			},
-		},
-	}
-
-	obj, err := c.AnalyzeComment(data)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	//Retrieving values
-	attrScores := obj["attributeScores"].(map[string]interface{})
-	for name, attr := range attrScores {
-		sumScore := attr.(map[string]interface{})["summaryScore"]
-		value := sumScore.(map[string]interface{})["value"]
-		fmt.Println(name, value)
-	}
-
-```
-### Prints
+client := gp.NewClient(os.Getenv("TOKEN"))
 ```
 
-IDENTITY_ATTACK 0.37591976
-INSULT 0.7148725
-THREAT 0.46167082
-TOXICITY 0.9328236
-
-```
-## Suggesting comment score
-```go
-
-data := map[string]interface{}{
-		"comment": map[string]interface{}{
-			"text": "I will break your knee caps",
-		},
-		"attributeScores": map[string]interface{}{
-			"THREAT": map[string]interface{}{
-				"summaryScore": map[string]interface{}{
-					"value": 1.0,
-					"type":  "PROBABILITY",
-				},
-			},
-		},
-	}
-
-	_, err := c.SuggestCommentScore(data)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-```
+See Documentation and Examples below for more detailed information.
