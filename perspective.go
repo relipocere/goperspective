@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-//Client is the Perspecive API HTTP client.
+//Client is the Perspective API HTTP client.
 type Client struct {
 	baseURL string
 	key     string
