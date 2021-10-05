@@ -33,7 +33,7 @@ type AnalyzeRequestAttr struct {
 	//(optional) Currently, only "PROBABILITY" is supported.
 	ScoreType string `json:"scoreType,omitempty"`
 	//(optional)The API won't return scores that are below this threshold for this attribute.
-	ScoreTreshold string `json:"scoreTreshold,omitempty"`
+	ScoreTreshold int64 `json:"scoreTreshold,omitempty"`
 }
 
 //AnalyzeResponse is the response data from the API's analyze method.
@@ -68,7 +68,7 @@ type SuggestRequest struct {
 	//Context map[string]interface{} has no use yet `json:"context,omitempty"`
 
 	//This holds the attribute scores that the client believes the comment should have. It has the same format as the attributeScores.
-	ReqAttr map[string]AnalyzeRequestAttr `json:"requestedAttributes"`
+	AttributeScores map[Attribute]AttributeScore `json:"attributeScores"`
 	//(optional) Example: "en", "es", "fr", "de", etc. If unspecified, the API will auto-detect the comment language.
 	Languages []string `json:"languages,omitempty"`
 	//(optional) An opaque identifier associating this comment with a particular community within your platform.
